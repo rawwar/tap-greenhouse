@@ -17,10 +17,10 @@ class ListCandidatesStream(GreenhouseStream):
 
 
 class ListApplicationsStream(GreenhouseStream):
-    """List Applications stream"""
+    """List Applications stream."""
 
-    name = 'list_applications'
-    path = 'applications'
-    primary_keys = ['id']
-    replication_key = 'last_activity'
+    name = "list_applications"
+    path = "applications"
+    primary_keys = ["id"]
+    replication_key = "last_activity_at"
     schema = schemas.applications
