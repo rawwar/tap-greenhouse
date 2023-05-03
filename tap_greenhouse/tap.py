@@ -37,7 +37,8 @@ class Tapgreenhouse(Tap):
         """
         return [
             streams.ListCandidatesStream(self),
-            streams.ListApplicationsStream(self)
+            streams.ListApplicationsStream(self),
+            streams.ListJobsStream(self),
         ]
 
 

@@ -24,3 +24,13 @@ class ListApplicationsStream(GreenhouseStream):
     primary_keys = ["id"]
     replication_key = "last_activity_at"
     schema = schemas.applications
+
+
+class ListJobsStream(GreenhouseStream):
+    """List Jobs Stream."""
+
+    name = "list_jobs"
+    path = "jobs"
+    primary_keys = ["id"]
+    replication_key = None
+    schema = schemas.jobs
