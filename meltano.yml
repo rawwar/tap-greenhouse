@@ -14,16 +14,14 @@ plugins:
     - catalog
     - discover
     - about
-    - stream-maps
     config:
-      start_date: '2010-01-01T00:00:00Z'
+      auth_token: "YOUR_API_KEY"
+      api_url: 'https://harvest.greenhouse.io/v1'
     settings:
-    # TODO: To configure using Meltano, declare settings and their types here:
-    - name: username
-    - name: password
+    - name: auth_token
       kind: password
-    - name: start_date
-      value: '2010-01-01T00:00:00Z'
+    - name: api_url
+      value: 'https://harvest.greenhouse.io/v1'
   loaders:
   - name: target-jsonl
     variant: andyh1203
