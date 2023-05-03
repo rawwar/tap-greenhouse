@@ -8,26 +8,22 @@ from typing import Any, Callable, Iterable
 import requests
 from singer_sdk.authenticators import BasicAuthenticator
 from singer_sdk.helpers.jsonpath import extract_jsonpath
-from singer_sdk.pagination import BaseAPIPaginator  # noqa: TCH002
+from singer_sdk.pagination import HeaderLinkPaginator
 from singer_sdk.streams import RESTStream
 
 _Auth = Callable[[requests.PreparedRequest], requests.PreparedRequest]
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
-class greenhouseStream(RESTStream):
+class GreenhouseStream(RESTStream):
     """greenhouse stream class."""
 
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
-        # TODO: hardcode a value here, or retrieve it from self.config
-        return "https://api.mysample.com"
+        return "https://harvest.greenhouse.io/v1/"
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
-
-    # Set this value or override `get_new_paginator`.
-    next_page_token_jsonpath = "$.next_page"  # noqa: S105
 
     @property
     def authenticator(self) -> BasicAuthenticator:
@@ -56,7 +52,7 @@ class greenhouseStream(RESTStream):
         # headers["Private-Token"] = self.config.get("auth_token")  # noqa: ERA001
         return headers
 
-    def get_new_paginator(self) -> BaseAPIPaginator:
+    def get_new_paginator(self) -> HeaderLinkPaginator:
         """Create a new pagination helper instance.
 
         If the source API can make use of the `next_page_token_jsonpath`
@@ -69,7 +65,7 @@ class greenhouseStream(RESTStream):
         Returns:
             A pagination helper instance.
         """
-        return super().get_new_paginator()
+        return HeaderLinkPaginator()
 
     def get_url_params(
         self,
@@ -89,7 +85,6 @@ class greenhouseStream(RESTStream):
         if next_page_token:
             params["page"] = next_page_token
         if self.replication_key:
-            params["sort"] = "asc"
             params["order_by"] = self.replication_key
         return params
 

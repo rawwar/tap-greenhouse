@@ -6,7 +6,7 @@ from pathlib import Path
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
-from tap_greenhouse.client import greenhouseStream
+from tap_greenhouse.client import GreenhouseStream
 
 # TODO: Delete this is if not using json files for schema definition
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
@@ -14,7 +14,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 #       - Copy-paste as many times as needed to create multiple stream types.
 
 
-class UsersStream(greenhouseStream):
+class UsersStream(GreenhouseStream):
     """Define custom stream."""
 
     name = "users"
@@ -51,7 +51,7 @@ class UsersStream(greenhouseStream):
     ).to_dict()
 
 
-class GroupsStream(greenhouseStream):
+class GroupsStream(GreenhouseStream):
     """Define custom stream."""
 
     name = "groups"

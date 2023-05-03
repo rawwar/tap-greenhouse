@@ -42,7 +42,7 @@ class Tapgreenhouse(Tap):
         ),
     ).to_dict()
 
-    def discover_streams(self) -> list[streams.greenhouseStream]:
+    def discover_streams(self) -> list[streams.GreenhouseStream]:
         """Return a list of discovered streams.
 
         Returns:
