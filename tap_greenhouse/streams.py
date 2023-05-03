@@ -6,11 +6,21 @@ from tap_greenhouse import schemas
 from tap_greenhouse.client import GreenhouseStream
 
 
-class ListCandidateStream(GreenhouseStream):
-    """Define custom stream."""
+class ListCandidatesStream(GreenhouseStream):
+    """List Candidates stream."""
 
     name = "list_candidates"
     path = "candidates"
     primary_keys = ["id"]
     replication_key = "last_activity"
     schema = schemas.candidates
+
+
+class ListApplicationsStream(GreenhouseStream):
+    """List Applications stream"""
+
+    name = 'list_applications'
+    path = 'applications'
+    primary_keys = ['id']
+    replication_key = 'last_activity'
+    schema = schemas.applications

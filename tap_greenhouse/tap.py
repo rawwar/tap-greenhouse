@@ -36,7 +36,8 @@ class Tapgreenhouse(Tap):
             A list of discovered streams.
         """
         return [
-            streams.ListCandidateStream(self),
+            streams.ListCandidatesStream(self),
+            streams.ListApplicationsStream(self)
         ]
 
 
