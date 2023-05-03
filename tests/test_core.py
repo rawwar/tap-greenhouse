@@ -8,7 +8,7 @@ from tap_greenhouse.tap import Tapgreenhouse
 
 SAMPLE_CONFIG = {
     "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d"),
-    # TODO: Initialize minimal tap config
+    "auth_token": "123",
 }
 
 
@@ -17,6 +17,3 @@ TestTapgreenhouse = get_tap_test_class(
     tap_class=Tapgreenhouse,
     config=SAMPLE_CONFIG,
 )
-
-
-# TODO: Create additional tests as appropriate for your tap.
