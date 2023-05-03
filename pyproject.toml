@@ -38,7 +38,7 @@ ignore = [
 select = ["ALL"]
 src = ["tap_greenhouse"]
 target-version = "py37"
-
+ignore-init-module-imports = true
 
 [tool.ruff.flake8-annotations]
 allow-star-arg-any = true
