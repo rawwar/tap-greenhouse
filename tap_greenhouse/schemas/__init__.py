@@ -8,6 +8,7 @@ from .custom_fields import schema_dict as custom_fields
 from .job_openings import schema_dict as job_openings
 from .jobs import schema_dict as jobs
 from .list_approvals import schema_dict as list_approvals
+from .list_demographic_questions import schema_dict as list_demographic_questions
 from .pending_approvals_for_user import schema_dict as pending_approvals_for_user
 
 __all__ = [
@@ -21,4 +22,5 @@ __all__ = [
     "list_approvals",
     "pending_approvals_for_user",
     "custom_fields",
+    "list_demographic_questions",
 ]

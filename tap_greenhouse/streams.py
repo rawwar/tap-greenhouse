@@ -161,7 +161,7 @@ class ListDemographicQuestionStream(GreenhouseStream):
     name = "list_demographic_question"
     path = "demographics/questions"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.list_demographic_questions
 
 
 class ListJobPostStream(GreenhouseStream):
