@@ -152,7 +152,7 @@ class ListCustomFieldStream(GreenhouseStream):
     name = "list_custom_field"
     path = "custom_fields"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.custom_fields
 
 
 class ListDemographicQuestionStream(GreenhouseStream):
