@@ -101,7 +101,7 @@ class ListUsersStream(GreenhouseStream):
     name = "list_users"
     path = "users"
     replication_key = "updated_after"
-    schemas = None
+    schemas = schemas.users
 
     def get_child_context(self, record: dict, context: dict | None) -> dict | None:
         """Get child context for Child Streams."""
@@ -199,13 +199,31 @@ class ListOfferStream(GreenhouseStream):
     schemas = schemas.offer
 
 
+class ListOfficeStream(GreenhouseStream):
+    """Office Stream."""
+
+    name = "list_office"
+    path = "offices"
+    primary_keys = ["id"]
+    schemas = schemas.offices
+
+
+class ListProspectPoolsStream(GreenhouseStream):
+    """List Prospect Pools stream."""
+
+    name = "list_prospect_pools"
+    path = "prospect_pools"
+    primary_keys = ["id"]
+    schemas = schemas.prospect_pools
+
+
 class ListRejectionReasonStream(GreenhouseStream):
     """Rejection Reasons Stream."""
 
     name = "list_rejection_reason"
     path = "rejection_reasons"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.rejection_reasons
 
 
 class ListScheduledInterviewStream(GreenhouseStream):
@@ -214,7 +232,7 @@ class ListScheduledInterviewStream(GreenhouseStream):
     name = "list_scheduled_interview"
     path = "scheduled_interviews"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.scheduled_interviews
 
 
 class ListScorecardStream(GreenhouseStream):
@@ -223,7 +241,7 @@ class ListScorecardStream(GreenhouseStream):
     name = "list_scorecard"
     path = "scorecards"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.list_scorecards
 
 
 class ListSourceStream(GreenhouseStream):
@@ -232,7 +250,7 @@ class ListSourceStream(GreenhouseStream):
     name = "list_source"
     path = "sources"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.list_sources
 
 
 class ListCandidateTagStream(GreenhouseStream):
@@ -241,7 +259,7 @@ class ListCandidateTagStream(GreenhouseStream):
     name = "list_candidate_tag"
     path = "tags/candidate"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.tags
 
 
 class ListUserJobPermissionsStream(GreenhouseStream):
@@ -251,7 +269,7 @@ class ListUserJobPermissionsStream(GreenhouseStream):
     parent_stream_type = ListUsersStream
     ignore_parent_replication_key = True
     path = "users/{user_id}/permissions/jobs"
-    schemas = None
+    schemas = schemas.user_permissions
 
 
 class UserRoleStream(GreenhouseStream):
@@ -260,22 +278,4 @@ class UserRoleStream(GreenhouseStream):
     name = "user_role"
     path = "/v1/user_roles"
     primary_keys = ["id"]
-    schemas = None
-
-
-class ListOfficeStream(GreenhouseStream):
-    """Office Stream."""
-
-    name = "list_office"
-    path = "offices"
-    primary_keys = ["id"]
-    schemas = None
-
-
-class ListProspectPoolsStream(GreenhouseStream):
-    """List Prospect Pools stream."""
-
-    name = "list_prospect_pools"
-    path = "prospect_pools"
-    primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.user_role

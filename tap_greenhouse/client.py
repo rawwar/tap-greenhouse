@@ -18,6 +18,8 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class GreenhouseStream(RESTStream):
     """greenhouse stream class."""
 
+    # uncomment the following for loose type checking
+
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
@@ -54,6 +56,7 @@ class GreenhouseStream(RESTStream):
 
     def get_new_paginator(self) -> HeaderLinkPaginator:
         """Create a new pagination helper instance.
+
         Returns:
             A HeaderLinkPaginator  instance.
         """
