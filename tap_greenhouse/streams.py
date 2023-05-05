@@ -85,14 +85,14 @@ class ListApprovalsStream(GreenhouseStream):
         }
 
 
-class ListApprovalFlowStream(GreenhouseStream):
+class ApprovalFlowStream(GreenhouseStream):
     """Get: Retrieve Approval Flow."""
 
     name = "retrieve_approval_flow"
     parent_stream_type = ListApprovalsStream
     ignore_parent_replication_key = True
     path = "approval_flows/{id}"
-    schemas = schemas.list_approvals
+    schemas = schemas.approval_flows
 
 
 class ListUsersStream(GreenhouseStream):
@@ -108,6 +108,16 @@ class ListUsersStream(GreenhouseStream):
         return {
             "user_id": record["id"],
         }
+
+
+class PendingApprovalsStream(GreenhouseStream):
+    """List Pending Approvals for user Stream."""
+
+    name = "pending_approvals_for_user"
+    parent_stream_type = ListUsersStream
+    ignore_parent_replication_key = True
+    path = "users/{user_id}/pending_approvals"
+    schemas = schemas.pending_approvals_for_user
 
 
 class PendingApprovalsForUserStream(GreenhouseStream):

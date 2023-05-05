@@ -1,4 +1,4 @@
-"""List Approvals Schema."""
+"""Singer schema for Greenhouse Approval Flows."""
 from singer_sdk import typing as th
 
 schema = th.PropertiesList(
