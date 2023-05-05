@@ -128,22 +128,13 @@ class PendingApprovalsForUserStream(GreenhouseStream):
     path = "users/{user_id}/pending_approvals"
 
 
-class ListJobStageStream(GreenhouseStream):
-    """Job Stage Stream."""
-
-    name = "list_job_stage"
-    path = "job_stages"
-    primary_keys = ["id"]
-    schemas = None
-
-
 class ListCloseReasonStream(GreenhouseStream):
     """Close Reasons Stream."""
 
     name = "list_close_reason"
     path = "close_reasons"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.close_reasons
 
 
 class ListCustomFieldStream(GreenhouseStream):
@@ -164,13 +155,48 @@ class ListDemographicQuestionStream(GreenhouseStream):
     schemas = schemas.list_demographic_questions
 
 
+class ListDepartmentStream(GreenhouseStream):
+    """Department Stream."""
+
+    name = "list_department"
+    path = "departments"
+    primary_keys = ["id"]
+    schemas = schemas.departments
+
+
+class ListEEOCStream(GreenhouseStream):
+    """List EEOC Stream."""
+
+    name = "list_eeoc"
+    path = "eeoc"
+    schemas = schemas.eeoc
+
+
 class ListJobPostStream(GreenhouseStream):
     """Job Post Stream."""
 
     name = "list_job_post"
     path = "job_posts"
     primary_keys = ["id"]
-    schemas = None
+    schemas = schemas.job_posts
+
+
+class ListJobStageStream(GreenhouseStream):
+    """Job Stage Stream."""
+
+    name = "list_job_stage"
+    path = "job_stages"
+    primary_keys = ["id"]
+    schemas = schemas.job_stages
+
+
+class ListOfferStream(GreenhouseStream):
+    """Offer Stream."""
+
+    name = "list_offer"
+    path = "offers"
+    primary_keys = ["id"]
+    schemas = schemas.offer
 
 
 class ListRejectionReasonStream(GreenhouseStream):
@@ -233,32 +259,6 @@ class UserRoleStream(GreenhouseStream):
 
     name = "user_role"
     path = "/v1/user_roles"
-    primary_keys = ["id"]
-    schemas = None
-
-
-class DepartmentStream(GreenhouseStream):
-    """Department Stream."""
-
-    name = "list_department"
-    path = "departments"
-    primary_keys = ["id"]
-    schemas = None
-
-
-class ListEEOCStream(GreenhouseStream):
-    """List EEOC Stream."""
-
-    name = "list_eeoc"
-    path = "eeoc"
-    schemas = None
-
-
-class ListOfferStream(GreenhouseStream):
-    """Offer Stream."""
-
-    name = "list_offer"
-    path = "offers"
     primary_keys = ["id"]
     schemas = None
 
