@@ -2,7 +2,7 @@
 
 from singer_sdk import typing as th
 
-from tap_greenhouse.schemas.job_opening import schema as job_opening
+from tap_greenhouse.schemas.job_openings import schema as job_opening
 
 schema = th.PropertiesList(
     th.Property("id", th.IntegerType, required=True),
