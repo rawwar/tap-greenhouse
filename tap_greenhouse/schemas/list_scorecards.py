@@ -45,7 +45,7 @@ schema = th.PropertiesList(
             th.ObjectType(
                 th.Property("name", th.StringType),
                 th.Property("type", th.StringType),
-                th.Property("note", th.StringType, nullable=True),
+                th.Property("note", th.StringType),
                 th.Property("rating", th.StringType),
             ),
         ),
@@ -64,7 +64,7 @@ schema = th.PropertiesList(
         "questions",
         th.ArrayType(
             th.ObjectType(
-                th.Property("id", th.IntegerType, nullable=True),
+                th.Property("id", th.IntegerType),
                 th.Property("question", th.StringType),
                 th.Property("answer", th.StringType),
             ),

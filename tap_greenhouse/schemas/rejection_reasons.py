@@ -10,7 +10,6 @@ schema = th.PropertiesList(
         th.ObjectType(
             th.Property("id", th.IntegerType),
             th.Property("name", th.StringType),
-            required=["id", "name"],
         ),
     ),
 )

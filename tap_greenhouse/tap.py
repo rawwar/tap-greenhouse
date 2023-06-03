@@ -43,7 +43,6 @@ class Tapgreenhouse(Tap):
             streams.ListApprovalsStream(self),
             streams.ApprovalFlowStream(self),
             streams.ListUsersStream(self),
-            streams.PendingApprovalsStream(self),
             streams.PendingApprovalsForUserStream(self),
             streams.ListCloseReasonStream(self),
             streams.ListCustomFieldStream(self),

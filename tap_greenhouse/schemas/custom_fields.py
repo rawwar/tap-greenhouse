@@ -46,7 +46,6 @@ schema = th.PropertiesList(
                     "external_id",
                     th.StringType,
                     required=False,
-                    nullable=True,
                 ),
             ),
         ),

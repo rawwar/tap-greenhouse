@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any, Callable, Iterable
+from urllib.parse import ParseResult, parse_qsl
 
 import requests
 from singer_sdk.authenticators import BasicAuthenticator
@@ -77,8 +78,8 @@ class GreenhouseStream(RESTStream):
             A dictionary of URL query parameters.
         """
         params: dict = {}
-        if next_page_token:
-            params["page"] = next_page_token
+        if next_page_token and isinstance(next_page_token, ParseResult):
+            return dict(parse_qsl(next_page_token.query))
         if self.replication_key:
             params["order_by"] = self.replication_key
         return params

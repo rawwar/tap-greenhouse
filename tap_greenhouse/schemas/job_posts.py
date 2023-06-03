@@ -9,7 +9,7 @@ schema = th.PropertiesList(
         th.ObjectType(
             th.Property("id", th.IntegerType),
             th.Property("name", th.StringType),
-            th.Property("office_id", th.NullableType(th.IntegerType)),
+            th.Property("office_id", th.IntegerType),
             th.Property(
                 "job_post_location_type",
                 th.ObjectType(
@@ -48,7 +48,7 @@ schema = th.PropertiesList(
                         ),
                     ),
                 ),
-                th.Property("description", th.NullableType(th.StringType)),
+                th.Property("description", th.StringType),
             ),
         ),
     ),
