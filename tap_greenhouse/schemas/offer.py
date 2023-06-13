@@ -16,8 +16,14 @@ schema = th.PropertiesList(
             th.Property("status", th.StringType),
             th.Property("opened_at", th.StringType),
             th.Property("closed_at", th.StringType, required=False),
-            th.Property("application_id", th.StringType, required=False),
-            th.Property("close_reason", th.StringType, required=False),
+            th.Property("application_id", th.IntegerType, required=False),
+            th.Property(
+                "close_reason",
+                th.ObjectType(
+                    th.Property("id", th.IntegerType),
+                    th.Property("name", th.StringType),
+                ),
+            ),
         ),
     ),
     th.Property("created_at", th.StringType),
