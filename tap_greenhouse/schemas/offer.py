@@ -40,7 +40,7 @@ schema = th.PropertiesList(
             th.Property("best_seasons", th.StringType, required=False),
             th.Property("start_date", th.StringType),
             th.Property("willing_to_negotiate", th.StringType, required=False),
-            th.Property("salary", th.StringType),
+            th.Property("salary", th.IntegerType),
             th.Property("notes", th.StringType),
         ),
     ),
