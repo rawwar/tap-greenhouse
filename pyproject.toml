@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rawwar-tap-greenhouse"
-version = "0.3.1"
+version = "0.3.2"
 description = "`tap-greenhouse` is a Singer tap for greenhouse, built with the Meltano Singer SDK."
 readme = "README.md"
 authors = ["kalyan reddy"]
