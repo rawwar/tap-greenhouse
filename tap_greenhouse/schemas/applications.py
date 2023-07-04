@@ -35,7 +35,20 @@ schema = th.PropertiesList(
             th.Property("employee_id", th.StringType),
         ),
     ),
-    th.Property("rejection_reason", th.StringType),
+    th.Property(
+        "rejection_reason",
+        th.ObjectType(
+            th.Property("id", th.IntegerType),
+            th.Property("name", th.StringType),
+            th.Property(
+                "type",
+                th.ObjectType(
+                    th.Property("id", th.IntegerType),
+                    th.Property("name", th.StringType),
+                ),
+            ),
+        ),
+    ),
     th.Property("rejection_details", th.StringType),
     th.Property(
         "jobs",
