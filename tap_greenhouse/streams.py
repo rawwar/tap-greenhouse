@@ -100,7 +100,7 @@ class ListUsersStream(GreenhouseStream):
 
     name = "list_users"
     path = "users"
-    replication_key = "updated_after"
+    replication_key = "updated_at"
     schema = schemas.users
 
     def get_child_context(self, record: dict, context: dict | None) -> dict | None:
