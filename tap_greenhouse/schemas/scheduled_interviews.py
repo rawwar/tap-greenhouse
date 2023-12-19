@@ -21,8 +21,8 @@ schema = th.PropertiesList(
     th.Property("location", th.StringType),
     th.Property("video_conferencing_url", th.StringType),
     th.Property("status", th.StringType),
-    th.Property("created_at", th.StringType),
-    th.Property("updated_at", th.StringType),
+    th.Property("created_at", th.DateTimeType),
+    th.Property("updated_at", th.DateTimeType),
     th.Property(
         "interview",
         th.ObjectType(

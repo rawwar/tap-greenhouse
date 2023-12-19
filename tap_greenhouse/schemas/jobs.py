@@ -48,7 +48,15 @@ schema = th.PropertiesList(
             ),
         ),
     ),
-    th.Property("custom_fields", th.ObjectType()),
+    th.Property(
+        "custom_fields",
+        th.ObjectType(
+            th.Property("region", th.StringType, required=False),
+            th.Property("team", th.StringType, required=False),
+            th.Property("employment_type", th.StringType, required=False),
+            th.Property("credentials", th.StringType, required=False)
+        ),
+    ),
     th.Property("keyed_custom_fields", th.ObjectType()),
     th.Property(
         "hiring_team",
