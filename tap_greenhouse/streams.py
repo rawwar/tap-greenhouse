@@ -159,6 +159,7 @@ class ListEEOCStream(GreenhouseStream):
 
     name = "list_eeoc"
     path = "eeoc"
+    primary_keys = ["application_id"]
     schema = schemas.eeoc
 
 
