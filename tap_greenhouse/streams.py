@@ -100,6 +100,7 @@ class ListUsersStream(GreenhouseStream):
 
     name = "list_users"
     path = "users"
+    primary_keys = ["id"]
     replication_key = "updated_at"
     schema = schemas.users
 
